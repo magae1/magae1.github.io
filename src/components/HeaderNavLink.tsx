@@ -1,21 +1,20 @@
+import { AriaRole } from "react";
 import { NavLink, To } from "react-router";
 
 interface Props {
   to: To;
   label: string;
+  role?: AriaRole;
 }
 
 export default function HeaderNavLink(props: Props) {
-  const { to, label } = props;
+  const { to, label, role } = props;
   return (
     <NavLink
       to={to}
-      className={({ isActive, isPending, isTransitioning }) =>
-        [
-          isActive ? "btn-accent" : "",
-          isPending || isTransitioning ? "btn-disabled" : "",
-          "btn join-item",
-        ].join(" ")
+      role={role}
+      className={({ isActive }) =>
+        [isActive ? "tab-active" : "", "tab"].join(" ")
       }
     >
       {label}
