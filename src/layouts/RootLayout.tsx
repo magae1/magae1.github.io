@@ -11,6 +11,7 @@ export default function RootLayout() {
         <div className="w-full flex justify-center">
           <div role="tablist" className="tabs tabs-box">
             <HeaderNavLink to="/" label="HOME" role="tab" />
+            <HeaderNavLink to="/talk" label="TALK" role="tab" />
           </div>
         </div>
       </HeaderWrapper>

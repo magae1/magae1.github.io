@@ -1,6 +1,6 @@
 import { MotionConfig, motion } from "motion/react";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <MotionConfig reducedMotion="user" transition={{ duration: 0.8 }}>
       <div className="hero min-h-screen">
