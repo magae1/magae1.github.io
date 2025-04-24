@@ -21,7 +21,7 @@ export default function HeaderWrapper({ children }: Props) {
   });
 
   return (
-    <div className="sticky top-0 flex w-full justify-center">
+    <div className="sticky top-0 z-10 flex w-full justify-center">
       <div
         className="absolute w-full top-0 h-5"
         onMouseOver={() => setHeaderState("visible")}
