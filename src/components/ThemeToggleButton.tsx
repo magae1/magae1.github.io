@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 
 import useLocalStorage from "../hooks/useLocalStorage.ts";
 
-export default function ThemeToggleButton() {
+function ThemeToggleButton() {
   const [theme, setTheme] = useLocalStorage<"light" | "dark">("theme", "light");
 
   useEffect(() => {
@@ -33,3 +33,5 @@ export default function ThemeToggleButton() {
     </label>
   );
 }
+
+export default memo(ThemeToggleButton);
