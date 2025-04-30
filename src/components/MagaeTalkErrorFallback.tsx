@@ -1,16 +1,29 @@
-import { useErrorBoundary } from "react-error-boundary";
+import { FallbackProps } from "react-error-boundary";
+import { MdError } from "react-icons/md";
 
-interface Props {
-  error: Error;
-}
-export default function MagaeTalkErrorFallback({ error }: Props) {
-  const { resetBoundary } = useErrorBoundary();
-
+export default function MagaeTalkErrorFallback({
+  error,
+  resetErrorBoundary,
+}: FallbackProps) {
   return (
-    <div role="alert">
-      <p>Something went wrong:</p>
-      <pre className="text-red-500">{error.message}</pre>
-      <button onClick={resetBoundary}>Try again</button>
+    <div className="h-full w-full flex justify-center items-center">
+      <div role="alert" className="alert alert-error alert-vertical">
+        <MdError size={24} />
+        <div>
+          {error instanceof Error && (
+            <h4 className="font-bold text-xs">[{error.message}]</h4>
+          )}
+          <p>서버에 접속할 수 없습니다.</p>
+        </div>
+        <div>
+          <button
+            onClick={resetErrorBoundary}
+            className="btn btn-sm btn-neutral"
+          >
+            재시도
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

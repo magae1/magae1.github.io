@@ -31,7 +31,7 @@ interface ChatProps {
 function Chat({ content }: ChatProps) {
   return (
     <div className="chat chat-start">
-      <div className="chat-bubble">{content}</div>
+      <div className="chat-bubble wrap-anywhere">{content}</div>
     </div>
   );
 }

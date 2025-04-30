@@ -30,12 +30,21 @@ export default function TalkSocketProvider({ children }: Props) {
   };
 
   useEffect(() => {
-    const socket = new WebSocket("ws://localhost:8000/ws/1");
-    socket.onopen = () => setConnected(true);
-    socket.onclose = () => setConnected(false);
-    conn.current = socket;
+    const connectWS = () => {
+      const socket = new WebSocket("ws://localhost:8000/ws");
+      socket.onopen = () => setConnected(true);
+      socket.onclose = () => {
+        setConnected(false);
+        setTimeout(() => {
+          connectWS();
+        }, 1000);
+      };
+      conn.current = socket;
+    };
+
+    connectWS();
     return () => {
-      socket.close();
+      conn.current?.close();
       conn.current = null;
     };
   }, []);

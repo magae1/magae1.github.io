@@ -1,8 +1,9 @@
 import { lazy, Suspense } from "react";
+import { QueryErrorResetBoundary } from "@tanstack/react-query";
 import { ErrorBoundary } from "react-error-boundary";
 
-import MagaeTalkErrorFallback from "../components/MagaeTalkErrorFallback.tsx";
 import MagaeTalkLoading from "../components/MagaeTalkLoading.tsx";
+import MagaeTalkErrorFallback from "../components/MagaeTalkErrorFallback.tsx";
 const MagaeTalk = lazy(() => import("../components/MagaeTalk.tsx"));
 
 export default function TalkPage() {
@@ -16,11 +17,18 @@ export default function TalkPage() {
           <div className="mockup-phone rounded-[48px]">
             <div className="mockup-phone-camera w-[76px] h-[22px]"></div>
             <div className="mockup-phone-display w-[280px] h-[600px] rounded-[32px]">
-              <ErrorBoundary fallbackRender={MagaeTalkErrorFallback}>
-                <Suspense fallback={<MagaeTalkLoading />}>
-                  <MagaeTalk />
-                </Suspense>
-              </ErrorBoundary>
+              <QueryErrorResetBoundary>
+                {({ reset }) => (
+                  <ErrorBoundary
+                    fallbackRender={MagaeTalkErrorFallback}
+                    onReset={reset}
+                  >
+                    <Suspense fallback={<MagaeTalkLoading />}>
+                      <MagaeTalk />
+                    </Suspense>
+                  </ErrorBoundary>
+                )}
+              </QueryErrorResetBoundary>
             </div>
           </div>
         </div>
