@@ -5,6 +5,7 @@ import TalkSocketProvider from "./provider/TalkSocketProvider.tsx";
 import TalkFooter from "./TalkFooter.tsx";
 import TalkBody from "./TalkBody.tsx";
 import { getIceServers } from "../repositories/fetchers.ts";
+import WebRTCProvider from "./provider/WebRTCProvider.tsx";
 
 export default function MagaeTalk() {
   const { data, error, isFetching } = useSuspenseQuery({
@@ -18,11 +19,13 @@ export default function MagaeTalk() {
 
   return (
     <TalkSocketProvider>
-      <div className="h-full text-black bg-white flex flex-col">
-        <TalkHeader />
-        <TalkBody />
-        <TalkFooter />
-      </div>
+      <WebRTCProvider iceServers={data}>
+        <div className="h-full text-black bg-white flex flex-col">
+          <TalkHeader />
+          <TalkBody />
+          <TalkFooter />
+        </div>
+      </WebRTCProvider>
     </TalkSocketProvider>
   );
 }

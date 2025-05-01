@@ -16,8 +16,8 @@ export default function TalkSocketProvider({ children }: Props) {
     }
 
     conn.current.onmessage = (e) => {
-      // const message = JSON.parse(e.data) as T;
-      cb(e.data);
+      const message = JSON.parse(e.data) as T;
+      cb(message);
     };
   };
 
