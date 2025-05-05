@@ -5,7 +5,7 @@ interface Props {
 export default function Notice({ content }: Props) {
   return (
     <div className="flex justify-center py-2">
-      <span className="badge badge-sm">{content}</span>
+      <span className="badge badge-sm badge-neutral">{content}</span>
     </div>
   );
 }
