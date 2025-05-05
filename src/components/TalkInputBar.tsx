@@ -1,10 +1,11 @@
 import { FormEvent, useContext, useRef, useState } from "react";
 import { MdSend } from "react-icons/md";
 
-import { TalkSocketContext } from "./provider/contexts.ts";
+import { TalkRTCContext, TalkSocketContext } from "./provider/contexts.ts";
 
 export default function TalkInputBar() {
-  const { isConnected, sendMsg } = useContext(TalkSocketContext);
+  const { isConnected } = useContext(TalkSocketContext);
+  const { sendChat } = useContext(TalkRTCContext);
   const inputRef = useRef<HTMLInputElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
@@ -29,7 +30,8 @@ export default function TalkInputBar() {
     if (inputVal.trim().length == 0) {
       return;
     }
-    sendMsg(inputVal);
+
+    sendChat(inputVal);
     inputRef.current.value = "";
   };
 

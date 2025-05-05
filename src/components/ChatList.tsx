@@ -1,37 +1,29 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
-import { TalkSocketContext } from "./provider/contexts.ts";
+import { TalkStateContext } from "./provider/contexts.ts";
+import Chat from "./Chat.tsx";
+import Notice from "./Notice.tsx";
 
 export default function ChatList() {
-  const [chats, setChats] = useState<string[]>([]);
-  const { receiveCallback } = useContext(TalkSocketContext);
-
-  useEffect(() => {
-    receiveCallback<string>((msg) => {
-      console.log(msg);
-      setChats((prev) => {
-        return [...prev, msg];
-      });
-    });
-  }, [receiveCallback]);
+  const { chats } = useContext(TalkStateContext);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col-reverse overflow-y-auto">
       {chats.map((v, i) => {
-        return <Chat key={i} content={v} />;
+        if ("id" in v && v.id) {
+          return (
+            <Chat
+              key={i}
+              id={v.id}
+              isMine={v.isMine}
+              timestamp={v.timestamp}
+              content={v.content}
+            />
+          );
+        } else {
+          return <Notice key={i} content={v.content} />;
+        }
       })}
-    </div>
-  );
-}
-
-interface ChatProps {
-  content: string;
-}
-
-function Chat({ content }: ChatProps) {
-  return (
-    <div className="chat chat-start">
-      <div className="chat-bubble wrap-anywhere">{content}</div>
     </div>
   );
 }

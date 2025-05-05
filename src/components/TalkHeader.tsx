@@ -1,10 +1,10 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { motion } from "motion/react";
 import { MdPeople } from "react-icons/md";
 import { VscDebugDisconnect } from "react-icons/vsc";
 
-import { TalkSocketContext } from "./provider/contexts.ts";
+import { TalkSocketContext, TalkStateContext } from "./provider/contexts.ts";
 
 export default function TalkHeader() {
   const { isConnected } = useContext(TalkSocketContext);
@@ -73,12 +73,12 @@ function CurrentTime() {
 }
 
 function CurrentPeople() {
-  const numOfPeople = useRef<number>(0);
+  const { numOfUsers } = useContext(TalkStateContext);
 
   return (
     <span className="flex items-center gap-x-1">
       <MdPeople size={18} />
-      {numOfPeople.current}
+      {numOfUsers}
     </span>
   );
 }
