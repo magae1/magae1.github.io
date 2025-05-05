@@ -1,54 +1,19 @@
-# React + TypeScript + Vite
+# magae's playground
+![storybookCI](https://github.com/magae1/magae1.github.io/actions/workflows/deployment.yml/badge.svg)
+![React version](https://img.shields.io/github/package-json/dependency-version/magae1/magae1.github.io/react?logo=React)
+![React Router version](https://img.shields.io/github/package-json/dependency-version/magae1/magae1.github.io/react-router?logo=ReactRouter)
+![React Query version](https://img.shields.io/github/package-json/dependency-version/magae1/magae1.github.io/@tanstack/react-query?logo=ReactQuery)
+![Tailwindcss version](https://img.shields.io/github/package-json/dependency-version/magae1/magae1.github.io/tailwindcss?logo=tailwindcss)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## magae talk 🗨
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+magae talk은 [WebRTC](https://webrtc.org/) 기반의 채팅 서비스입니다.
 
-## Expanding the ESLint configuration
+- 다중 p2p 연결을 지원
+  - 여러 명이 동시에 채팅 가능
+- [FastAPI](https://fastapi.tiangolo.com/) 기반의 WebSocket 서버와 연결
+  - [Signaling](https://webrtc.org/getting-started/peer-connections#signaling)을 위한 HTTP 기반의 웹 API 제공  
+  - 여러 클라이언트들의 Connection들을 효과적으로 관리하기 위한 커스텀 프로토콜 사용
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+구현 상세는 [여기](https://magae.notion.site/magae-talk-1eab7683056f80699057f7c070b2e697?pvs=4)를 참고해주세요.
