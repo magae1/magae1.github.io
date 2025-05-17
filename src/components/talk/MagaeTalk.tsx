@@ -1,12 +1,12 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 
 import TalkHeader from "./TalkHeader.tsx";
-import TalkSocketProvider from "./provider/TalkSocketProvider.tsx";
+import TalkSocketProvider from "../provider/TalkSocketProvider.tsx";
 import TalkFooter from "./TalkFooter.tsx";
 import TalkBody from "./TalkBody.tsx";
-import { getIceServers } from "../repositories/fetchers.ts";
-import WebRTCProvider from "./provider/WebRTCProvider.tsx";
-import TalkStateProvider from "./provider/TalkStateProvider.tsx";
+import { getIceServers } from "../../repositories/fetchers.ts";
+import WebRTCProvider from "../provider/WebRTCProvider.tsx";
+import TalkStateProvider from "../provider/TalkStateProvider.tsx";
 
 export default function MagaeTalk() {
   const { data, error, isFetching } = useSuspenseQuery({

@@ -1,7 +1,7 @@
 import { FormEvent, useContext, useRef, useState } from "react";
 import { MdSend } from "react-icons/md";
 
-import { TalkRTCContext, TalkSocketContext } from "./provider/contexts.ts";
+import { TalkRTCContext, TalkSocketContext } from "../provider/contexts.ts";
 
 export default function TalkInputBar() {
   const { isConnected } = useContext(TalkSocketContext);

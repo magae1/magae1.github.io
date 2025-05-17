@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { MdPeople } from "react-icons/md";
 import { VscDebugDisconnect } from "react-icons/vsc";
 
-import { TalkSocketContext, TalkStateContext } from "./provider/contexts.ts";
+import { TalkSocketContext, TalkStateContext } from "../provider/contexts.ts";
 
 export default function TalkHeader() {
   const { isConnected } = useContext(TalkSocketContext);

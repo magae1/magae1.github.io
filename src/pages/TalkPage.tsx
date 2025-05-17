@@ -4,9 +4,9 @@ import { ErrorBoundary } from "react-error-boundary";
 import { SiFastapi, SiWebrtc, SiReact } from "react-icons/si";
 import { motion } from "motion/react";
 
-import MagaeTalkLoading from "../components/MagaeTalkLoading.tsx";
-import MagaeTalkErrorFallback from "../components/MagaeTalkErrorFallback.tsx";
-const MagaeTalk = lazy(() => import("../components/MagaeTalk.tsx"));
+import MagaeTalkLoading from "../components/talk/MagaeTalkLoading.tsx";
+import MagaeTalkErrorFallback from "../components/talk/MagaeTalkErrorFallback.tsx";
+const MagaeTalk = lazy(() => import("../components/talk/MagaeTalk.tsx"));
 
 export default function TalkPage() {
   const icons = [
