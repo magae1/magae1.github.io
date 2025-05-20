@@ -19,14 +19,22 @@ export default function RootLayout() {
       <Outlet />
       <div className="sticky bottom-0">
         <div className="absolute bottom-5 right-5 flex flex-col gap-3">
-          <a
-            className="btn btn-circle bg-base-300 opacity-60 hover:opacity-100 shadow-lg outline outline-black/5 dark:outline-white/5"
-            href="https://github.com/magae1/magae1.github.io"
-            target="_blank"
-          >
-            <FaGithub size={24} />
-          </a>
-          <div className="tooltip" data-tip="theme">
+          <div className="tooltip tooltip-left">
+            <div className="tooltip-content">
+              <p className="font-bold">Visit github</p>
+            </div>
+            <a
+              className="btn btn-circle bg-base-300 opacity-60 hover:opacity-100 shadow-lg outline outline-black/5 dark:outline-white/5"
+              href="https://github.com/magae1/magae1.github.io"
+              target="_blank"
+            >
+              <FaGithub size={24} />
+            </a>
+          </div>
+          <div className="tooltip tooltip-left">
+            <div className="tooltip-content">
+              <p className="font-bold">Change theme</p>
+            </div>
             <ThemeToggleButton />
           </div>
         </div>
