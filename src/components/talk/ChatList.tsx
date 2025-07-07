@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { TalkStateContext } from "../provider/contexts.ts";
 import Chat from "./Chat.tsx";
-import Notice from "../Notice.tsx";
+import Notice from "./Notice.tsx";
 
 export default function ChatList() {
   const { chats } = useContext(TalkStateContext);
