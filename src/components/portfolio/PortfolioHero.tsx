@@ -3,6 +3,7 @@ import {FaArrowUpRightFromSquare, FaGithub} from "react-icons/fa6";
 import {SiTistory} from "react-icons/si";
 import ScrollWrapper from "../ScrollWrapper.tsx";
 import ScrollButton from "../ScrollButton.tsx";
+import {REVEAL_ANIMATION} from "../../constants.ts";
 
 const TECH_STACKS = [
   "Java",
@@ -22,16 +23,12 @@ const PROFILE_LINKS = [
   },
   {
     label: "Tech Blog",
-    detail: "마개의 개발 지하실",
-    href: "https://magae5basement.tistory.com/manage",
+    detail: "기술 블로그",
+    href: "https://magae5basement.tistory.com",
     icon: SiTistory,
   },
 ] as const;
 
-const reveal = {
-  hidden: {opacity: 0, y: 20},
-  visible: {opacity: 1, y: 0},
-};
 
 export default function PortfolioHero() {
   return (
@@ -47,32 +44,32 @@ export default function PortfolioHero() {
         >
           <motion.p
               className="font-mono text-[10px] font-semibold tracking-[0.24em] text-base-content/40 md:text-xs"
-              variants={reveal}
+              variants={REVEAL_ANIMATION}
           >
             MORE CODE, MORE COMFORTABLE.
           </motion.p>
           <motion.h1
               className="mt-4 max-w-5xl text-6xl font-black leading-none tracking-[-0.055em] md:text-8xl lg:text-9xl"
-              variants={reveal}
+              variants={REVEAL_ANIMATION}
           >
             magae1
           </motion.h1>
           <motion.p
               className="mt-7 text-lg font-bold tracking-tight md:text-xl"
-              variants={reveal}
+              variants={REVEAL_ANIMATION}
           >
             정중일 <span className="ml-1 font-normal text-base-content/40">joongil jeong</span>
           </motion.p>
           <motion.p
               className="mt-2 inline-flex rounded-full bg-primary/10 px-3 py-1.5 font-mono text-xs font-semibold text-primary"
-              variants={reveal}
+              variants={REVEAL_ANIMATION}
           >
             Backend Developer
           </motion.p>
 
           <div
               className="mt-10 grid gap-5 border-t border-base-content/15 pt-8 md:grid-cols-[1fr_auto] md:items-center md:gap-8">
-            <motion.div variants={reveal}>
+            <motion.div variants={REVEAL_ANIMATION}>
               <ul className="flex flex-wrap gap-2" aria-label="기술 스택">
                 {TECH_STACKS.map((stack) => (
                     <li
@@ -85,7 +82,7 @@ export default function PortfolioHero() {
               </ul>
             </motion.div>
 
-            <motion.div variants={reveal}>
+            <motion.div variants={REVEAL_ANIMATION}>
               <ul className="flex flex-wrap gap-2" aria-label="외부 링크">
                 {PROFILE_LINKS.map(({label, detail, href, icon: Icon}) => (
                     <li key={label}>
