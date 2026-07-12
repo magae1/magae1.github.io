@@ -24,7 +24,7 @@ export default function RootLayout() {
               <p className="font-bold">Visit github</p>
             </div>
             <a
-              className="btn btn-circle bg-base-300 opacity-60 hover:opacity-100 shadow-lg outline outline-black/5 dark:outline-white/5"
+              className="btn btn-circle floating-action"
               href="https://github.com/magae1/magae1.github.io"
               target="_blank"
             >

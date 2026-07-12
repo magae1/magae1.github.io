@@ -24,9 +24,7 @@ const projects: PortfolioProject[] = [
       "Next.js·WebSocket 서버, Spring API 서버, Redis·Kafka를 각각 분리된 인스턴스에 배치했습니다.",
       "Route53과 Traefik으로 요청을 라우팅하고, Coturn을 통해 WebRTC 연결을 지원합니다.",
       "PostgreSQL에는 서비스 데이터를, S3에는 정적 파일을 저장합니다.",
-    ],
-    glow: "bg-sky-400/20",
-    gradient: "from-sky-400 to-blue-600",
+    ]
   },
   {
     number: "02",
@@ -46,9 +44,7 @@ const projects: PortfolioProject[] = [
       "Spring Boot 서버와 Redis를 Docker 컨테이너로 분리해 애플리케이션과 캐시 저장소를 운영합니다.",
       "서비스 데이터는 PostgreSQL에 저장하고 정적 파일은 S3에서 관리합니다.",
       "프론트엔드는 S3와 AWS Amplify로 배포하며 Route53을 통해 사용자 요청을 연결합니다.",
-    ],
-    glow: "bg-emerald-400/20",
-    gradient: "from-emerald-400 to-teal-600",
+    ]
   },
   {
     number: "03",
@@ -61,16 +57,7 @@ const projects: PortfolioProject[] = [
     result: "수집부터 배포까지 End-to-End 구현",
     stack: ["Python", "Django", "React", "Selenium", "Docker"],
     href: "https://github.com/magae1/ingupdong_back",
-    image: "/images/sys-arch-ing.png",
-    imageAlt: "인급동 히스토리 시스템 아키텍처 다이어그램",
-    architectureNotes: [
-      "EC2의 Docker 환경에서 Nginx가 정적 파일을 제공하고 API 요청을 Gunicorn으로 전달합니다.",
-      "Gunicorn과 Django가 애플리케이션 요청을 처리하며 서비스 데이터는 AWS RDS MySQL에 저장합니다.",
-      "AWS Lambda와 Selenium으로 유튜브 인기 급상승 데이터를 주기적으로 수집합니다.",
-      "외부 요청은 80·443 포트로 유입되며 Nginx가 프론트엔드와 백엔드 트래픽을 분리합니다.",
-    ],
-    glow: "bg-rose-400/20",
-    gradient: "from-rose-400 to-orange-500",
+    detailHref: "https://magae.notion.site/66d84f6bf26640129b26748ce3ee3735?pvs=73"
   },
 ];
 

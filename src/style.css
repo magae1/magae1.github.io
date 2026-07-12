@@ -2,3 +2,34 @@
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
 }
+
+@layer components {
+  .portfolio-link {
+    @apply rounded-full border-base-content/15 bg-base-100 font-normal shadow-sm;
+    @apply hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary hover:shadow-md;
+  }
+
+  .portfolio-link > svg:first-child {
+    @apply text-base text-base-content/50 transition-colors;
+  }
+
+  .portfolio-link:hover > svg:first-child {
+    @apply text-primary;
+  }
+
+  .portfolio-link-arrow {
+    @apply text-[10px] text-base-content/25 transition-transform;
+  }
+
+  .portfolio-link:hover .portfolio-link-arrow {
+    @apply -translate-y-0.5 translate-x-0.5 text-primary;
+  }
+
+  .tech-stack-badge {
+    @apply h-auto gap-1.5 border-base-content/10 px-3.5 py-2 font-mono text-xs text-base-content/70;
+  }
+
+  .floating-action {
+    @apply bg-base-300 opacity-60 shadow-lg outline outline-black/5 hover:opacity-100 dark:outline-white/5;
+  }
+}

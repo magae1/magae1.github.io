@@ -4,6 +4,15 @@ import {SiTistory} from "react-icons/si";
 import ScrollWrapper from "../ScrollWrapper.tsx";
 import ScrollButton from "../ScrollButton.tsx";
 import {REVEAL_ANIMATION} from "../../constants.ts";
+import TechStackBadge from "./TechStackBadge.tsx";
+
+const HERO_REVEAL_ANIMATION = {
+  ...REVEAL_ANIMATION,
+  visible: {
+    ...REVEAL_ANIMATION.visible,
+    transition: {duration: 0.35},
+  },
+};
 
 const TECH_STACKS = [
   "Java",
@@ -44,45 +53,42 @@ export default function PortfolioHero() {
         >
           <motion.p
               className="font-mono text-[10px] font-semibold tracking-[0.24em] text-base-content/40 md:text-xs"
-              variants={REVEAL_ANIMATION}
+              variants={HERO_REVEAL_ANIMATION}
           >
             MORE CODE, MORE COMFORTABLE.
           </motion.p>
           <motion.h1
               className="mt-4 max-w-5xl text-6xl font-black leading-none tracking-[-0.055em] md:text-8xl lg:text-9xl"
-              variants={REVEAL_ANIMATION}
+              variants={HERO_REVEAL_ANIMATION}
           >
             magae1
           </motion.h1>
           <motion.p
               className="mt-7 text-lg font-bold tracking-tight md:text-xl"
-              variants={REVEAL_ANIMATION}
+              variants={HERO_REVEAL_ANIMATION}
           >
             정중일 <span className="ml-1 font-normal text-base-content/40">joongil jeong</span>
           </motion.p>
           <motion.p
               className="mt-2 inline-flex rounded-full bg-primary/10 px-3 py-1.5 font-mono text-xs font-semibold text-primary"
-              variants={REVEAL_ANIMATION}
+              variants={HERO_REVEAL_ANIMATION}
           >
             Backend Developer
           </motion.p>
 
           <div
               className="mt-10 grid gap-5 border-t border-base-content/15 pt-8 md:grid-cols-[1fr_auto] md:items-center md:gap-8">
-            <motion.div variants={REVEAL_ANIMATION}>
+            <motion.div variants={HERO_REVEAL_ANIMATION}>
               <ul className="flex flex-wrap gap-2" aria-label="기술 스택">
                 {TECH_STACKS.map((stack) => (
-                    <li
-                        key={stack}
-                        className="rounded-lg border border-base-content/10 bg-base-200/60 px-3.5 py-2 font-mono text-xs text-base-content/70"
-                    >
-                      {stack}
+                    <li key={stack}>
+                      <TechStackBadge stack={stack}/>
                     </li>
                 ))}
               </ul>
             </motion.div>
 
-            <motion.div variants={REVEAL_ANIMATION}>
+            <motion.div variants={HERO_REVEAL_ANIMATION}>
               <ul className="flex flex-wrap gap-2" aria-label="외부 링크">
                 {PROFILE_LINKS.map(({label, detail, href, icon: Icon}) => (
                     <li key={label}>
@@ -90,14 +96,13 @@ export default function PortfolioHero() {
                           href={href}
                           target="_blank"
                           rel="noreferrer"
-                          className="group inline-flex items-center gap-2 rounded-full border border-base-content/15 bg-base-100 px-4 py-2 text-sm shadow-sm transition hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary hover:shadow-md"
+                          className="btn btn-sm portfolio-link"
                           aria-label={`${label} - ${detail}`}
                       >
-                        <Icon
-                            className="text-base text-base-content/50 transition-colors group-hover:text-primary"/>
-                        <strong className="font-medium">{label}</strong>
+                        <Icon/>
+                        <span>{label}</span>
                         <FaArrowUpRightFromSquare
-                            className="text-[10px] text-base-content/25 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"/>
+                            className="portfolio-link-arrow"/>
                       </a>
                     </li>
                 ))}

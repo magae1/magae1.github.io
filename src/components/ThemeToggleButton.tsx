@@ -11,7 +11,7 @@ function ThemeToggleButton() {
   }, [theme]);
 
   return (
-    <label className="btn swap swap-rotate btn-circle bg-base-300 opacity-60 hover:opacity-100 shadow-lg outline outline-black/5 dark:outline-white/5">
+    <label className="btn btn-circle floating-action swap swap-rotate">
       <input
         type="checkbox"
         checked={theme === "dark"}

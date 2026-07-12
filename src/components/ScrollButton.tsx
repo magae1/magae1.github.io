@@ -19,7 +19,7 @@ export default function ScrollButton({link, ariaLabel = "프로젝트 섹션으�
       >
         <span className="font-mono text-[9px] tracking-[0.24em]">스크롤</span>
         <motion.span
-            className="grid h-9 w-9 place-items-center rounded-full border border-base-content/15 bg-base-100/70 backdrop-blur"
+            className="btn btn-circle btn-sm border-base-content/15 bg-base-100/70 backdrop-blur"
             animate={{y: [0, 5, 0]}}
             transition={{duration: 1.6, repeat: Infinity, ease: "easeInOut"}}
         >

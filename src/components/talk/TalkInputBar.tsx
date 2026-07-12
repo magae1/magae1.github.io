@@ -37,10 +37,10 @@ export default function TalkInputBar() {
 
   return (
     <form className="join w-full" onSubmit={handleOnSubmit}>
-      <label className="grow join-item flex items-center bg-base-100 rounded-l-2xl">
+      <label className="input join-item grow rounded-l-2xl">
         <input
           ref={inputRef}
-          className="w-full focus:outline-none pl-4 pr-1"
+          className="grow focus:outline-none"
           placeholder="메시지 입력"
         />
       </label>
